@@ -31,8 +31,9 @@ app.get('/todos', (req,
 
 // pass express instance to service
 require('./services/movies-service')(app);
-
 require('./services/tweets-service')(app);
+require('./services/profile-service')(app);
+
 
 app.listen(process.env.PORT || 4000);
 
