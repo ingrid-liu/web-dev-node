@@ -1,4 +1,9 @@
 const express = require('express');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/webdev',)
+
+
+
 const app = express();
 
 // Configure CORS (Cross Origin Resource Sharing)
@@ -33,9 +38,12 @@ app.get('/todos', (req,
 require('./services/movies-service')(app);
 require('./services/tweets-service')(app);
 require('./services/profile-service')(app);
+require('./movies/service')(app);
+
 
 
 app.listen(process.env.PORT || 4000);
+// app.listen(7000);
 
 
 
