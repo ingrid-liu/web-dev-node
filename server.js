@@ -43,7 +43,6 @@ require('./movies/service')(app);
 
 
 app.listen(process.env.PORT || 4000);
-// app.listen(7000);
 
 
 
