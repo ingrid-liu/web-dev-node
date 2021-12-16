@@ -39,7 +39,30 @@
       "retweets": 234,
       "likes": 345
     }
+  },
+  {
+    "_id": "789",
+    "topic": "Personal",
+    "userName": "Summer Ingrid",
+    "verified": false,
+    "handle": "ingrid",
+    "title": "",
+    "tweet": "Hope Final ends quickly!",
+    "attachments": {
+      "image": ""
+    },
+    "time": "2 month ago",
+    "logo-image": "../../../images/avatar_ingrid.png",
+    "avatar-image": "../../../images/avatar_ingrid.png",
+    "tweets": "120K",
+    "stats": {
+      "comments": 2,
+      "retweets": 3,
+      "likes": 5
+    }
   }
+
+
 
 ]
 

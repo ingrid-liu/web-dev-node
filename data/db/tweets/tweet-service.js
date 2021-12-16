@@ -4,11 +4,7 @@ module.exports = (app) => {
 
     const findAllTweets = (req, res) =>
         dao.findAllTweets()
-            .then(tweets => {
-                    // console.log(tweets)
-                    return res.json(tweets)
-                }
-            );
+            .then(tweets => res.json(tweets));
 
     const deleteTweet = (req, res) => {
         console.log("req.params.id", req.params.id)
@@ -16,30 +12,32 @@ module.exports = (app) => {
             .then((status) => res.send(status));
     }
 
+    // const createTweet = (req, res) => {
+    //     const Tweet =  {
+    //         "topic": "Web Development",
+    //         "userName": "Ingrid",
+    //         "verified": false,
+    //         "handle": "ingrid",
+    //         "time": "2h",
+    //         "title": "Final finally comes!",
+    //         "logo-image": "../../../images/react-blue.png",
+    //         "avatar-image": "../../../images/react-blue.png",
+    //         "stats": {
+    //             "comments": 666,
+    //             "retweets": 888,
+    //             "likes": 999
+    //         },
+    //         "liked":false,
+    //         ...req.body,
+    //     };
+    //     console.log("+++++++", req.body)
+    //     return dao.createTweet(Tweet)
+    //         .then((insertedTweet) => res.json(insertedTweet))
+    // }
 
-
-    const createTweet = (req, res) => {
-        const Tweet =  {
-            "topic": "Web Development",
-            "userName": "Ingrid",
-            "verified": false,
-            "handle": "ingrid",
-            "time": "2h",
-            "title": "Final finally comes!",
-            "logo-image": "../../../images/react-blue.png",
-            "avatar-image": "../../../images/react-blue.png",
-            "stats": {
-                "comments": 666,
-                "retweets": 888,
-                "likes": 999
-            },
-            "liked":false,
-            ...req.body,
-        };
-        console.log("+++++++", req.body)
-        return dao.createTweet(Tweet)
-            .then((insertedTweet) => res.json(insertedTweet))
-    }
+    const createTweet = (req, res) =>
+        dao.createTweet(req.body)
+            .then((insertedTweet) => res.json(insertedTweet));
 
     const findTweetById = (req, res) =>
         dao.findTweetById(req.params.id)
@@ -69,12 +67,12 @@ module.exports = (app) => {
             )
     }
 
-
-    app.put('/rest/tweets/:id/like', likeTweet);
-    app.put("/rest/tweets/:id", updateTweet);
+    app.get("/rest/tweets", findAllTweets); //
     app.get("/rest/tweets/:id", findTweetById);
-    app.post("/rest/tweets", createTweet);
     app.delete("/rest/tweets/:id", deleteTweet);
-    app.get("/rest/tweets", findAllTweets);
+    app.post("/rest/tweets", createTweet);
+    app.put("/rest/tweets/:id", updateTweet);
+    app.put('/rest/tweets/:id/like', likeTweet);
+
 
 }
