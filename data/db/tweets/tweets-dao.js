@@ -24,3 +24,4 @@ module.exports = {
     findAllTweets, createTweet,
     deleteTweet, updateTweet,findTweetById
 };
+

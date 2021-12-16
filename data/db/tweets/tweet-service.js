@@ -5,7 +5,7 @@ module.exports = (app) => {
     const findAllTweets = (req, res) =>
         dao.findAllTweets()
             .then(tweets => {
-                    console.log(tweets)
+                    // console.log(tweets)
                     return res.json(tweets)
                 }
             );
@@ -21,17 +21,17 @@ module.exports = (app) => {
     const createTweet = (req, res) => {
         const Tweet =  {
             "topic": "Web Development",
-            "userName": "Zexi",
+            "userName": "Ingrid",
             "verified": false,
-            "handle": "zexi nong",
+            "handle": "ingrid",
             "time": "2h",
-            "title": "React.js is a component based front end library that makes it very easy to build Single Page Applications or SPAs",
+            "title": "Final finally comes!",
             "logo-image": "../../../images/react-blue.png",
             "avatar-image": "../../../images/react-blue.png",
             "stats": {
-                "comments": 123,
-                "retweets": 234,
-                "likes": 345
+                "comments": 666,
+                "retweets": 888,
+                "likes": 999
             },
             "liked":false,
             ...req.body,
@@ -57,10 +57,10 @@ module.exports = (app) => {
                     console.log("222：" + tweet.stats.likes)
                     if (tweet.liked) {
                         tweet.stats.likes--
-                        console.log("加了吗"+tweet.stats.likes)
+                        console.log("Like check1"+tweet.stats.likes)
                     } else {
                         tweet.stats.likes++
-                        console.log("加了吗"+tweet.stats.likes)
+                        console.log("Like check2"+tweet.stats.likes)
                     }
                     tweet.liked = !tweet.liked
                     return  dao.updateTweet(tweet)

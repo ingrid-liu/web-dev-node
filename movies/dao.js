@@ -6,7 +6,8 @@ const findAllMovies = () => model.find();
 
 // implement function to remove a movie given its ID
 const deleteMovie = (id) =>
-    model.removeOne({_id: id});
+    // model.remove({_id: id});
+    model.deleteOne({_id: id});
 
 // implement function to insert a movie into the database
 const createMovie = (movie) =>
